@@ -12,6 +12,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.moowork.node" version "1.1.1"
+}
+
 apply plugin: 'com.enonic.xp.app'
 apply plugin: 'maven'
 
@@ -20,6 +24,11 @@ app {
     displayName = 'PWA Starter Kit'
     vendorName = 'Enonic AS'
     vendorUrl = 'http://enonic.com'
+}
+
+node {
+    download = true
+    version = '6.9.2'
 }
 
 dependencies {
@@ -32,16 +41,18 @@ dependencies {
 
 repositories {
     mavenLocal()
-    jcenter()
+    mavenCentral()
     maven {
-        url 'http://repo.enonic.com/public'
+        url 'https://repo.enonic.com/public'
     }
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository( url: 'http://repo.enonic.net/artifactory/public' )
-        }
-    }
+task webpack(type: NodeTask) {
+    script = file('node_modules/webpack/bin/webpack.js')
 }
+
+// processes your package.json before running webpack
+webpack.dependsOn 'npmInstall'
+
+build.dependsOn webpack
+build.mustRunAfter webpack
