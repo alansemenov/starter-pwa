@@ -6,14 +6,15 @@ var mustacheLib = require('/lib/xp/mustache');
 function handleGet() {
     var site = portalLib.getSite();
 
-    var baseHref = portalLib.pageUrl({
+    var siteUrl = portalLib.pageUrl({
         path: site._path
     });
     
     var params = {
         appVersion: app.version,
         assetUrl: portalLib.assetUrl(''),
-        baseHref: (baseHref === '/') ? '' : baseHref
+        siteUrl: (siteUrl === '/') ? '' : siteUrl,
+        baseHref: siteUrl + '/'
     };
         
     var body = mustacheLib.render(view, params);

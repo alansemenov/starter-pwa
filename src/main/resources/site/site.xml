@@ -5,5 +5,8 @@
     <mapping controller="/lib/pwa/favicon-controller.js">
       <pattern>/favicon.ico</pattern>
     </mapping>
+    <mapping controller="/lib/pwa/manifest-controller.js">
+      <pattern>/manifest.json</pattern>
+    </mapping>
   </mappings>
 </site>
