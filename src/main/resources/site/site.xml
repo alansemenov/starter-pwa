@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
   <config/>
+  <mappings>
+    <mapping controller="/lib/pwa/favicon-controller.js">
+      <pattern>/favicon.ico</pattern>
+    </mapping>
+  </mappings>
 </site>
