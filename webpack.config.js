@@ -7,7 +7,7 @@ var paths = {
 
 module.exports = {
 
-    entry: path.join(__dirname, paths.assets, 'js', 'main.js'),
+    entry: path.join(__dirname, paths.assets, 'js/main.js'),
 
     output: {
         path: path.join(__dirname, paths.assets),
@@ -23,14 +23,14 @@ module.exports = {
             {
                 test: /.less$/,
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: "css-loader!less-loader",
+                    fallback: 'style-loader',
+                    use: "css-loader!less-loader"
                 })
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('styles.css')
+        new ExtractTextPlugin('_styles.css')
     ]
     
 };
