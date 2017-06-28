@@ -1,9 +1,9 @@
 <node>
-    <id>f91d44fb-c319-45b0-9411-3b90daa958b7</id>
+    <id>f79c4bb0-d377-41d8-af5f-27eb8270a106</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2017-06-26T11:12:10.927Z</timestamp>
-    <inheritPermissions>false</inheritPermissions>
+    <timestamp>2017-06-28T10:04:05.002Z</timestamp>
+    <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:system.admin">
             <allow type="array">
@@ -32,40 +32,44 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">PWA Starter</string>
-        <string name="type">portal:site</string>
-        <string name="owner">user:system:su</string>
-        <dateTime name="modifiedTime">2017-06-26T11:12:10.926Z</dateTime>
-        <string name="modifier">user:system:su</string>
+        <string name="displayName">app-icon</string>
+        <string name="type">media:image</string>
+        <dateTime name="createdTime">2017-06-28T10:04:04.993Z</dateTime>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2017-06-26T09:52:45.407Z</dateTime>
-        <property-set name="publish">
-            <dateTime name="first">2017-06-26T11:12:10.926Z</dateTime>
-            <dateTime name="from">2017-06-26T11:12:10.926Z</dateTime>
-        </property-set>
+        <string name="modifier">user:system:su</string>
+        <dateTime name="modifiedTime">2017-06-28T10:04:04.993Z</dateTime>
+        <string name="owner">user:system:su</string>
         <property-set name="data">
-            <string name="description">Sample site built with PWA Starter Kit for Enonic</string>
-            <property-set name="siteConfig">
-                <string name="applicationKey">com.enonic.starter.pwa</string>
-                <property-set name="config">
-                    <string name="appName">PWA Starter</string>
-                    <string name="appShortName">PWA Starter</string>
-                    <string name="appDescription">Sample PWA app built on Enonic XP platform</string>
-                    <reference name="appIcon">f79c4bb0-d377-41d8-af5f-27eb8270a106</reference>
-                    <string name="appThemeColor">#FFF</string>
-                    <string name="appBgColor">#FFF</string>
-                    <string name="appDisplay">fullscreen</string>
+            <property-set name="media">
+                <string name="attachment">app-icon.png</string>
+                <property-set name="focalPoint">
+                    <double name="x">0.5</double>
+                    <double name="y">0.5</double>
+                </property-set>
+            </property-set>
+            <string name="caption"/>
+            <string name="artist"/>
+            <string name="copyright"/>
+            <string name="tags"/>
+        </property-set>
+        <property-set name="x">
+            <property-set name="media">
+                <property-set name="imageInfo">
+                    <long name="imageHeight">512</long>
+                    <string name="contentType">image/png</string>
+                    <long name="imageWidth">512</long>
+                    <long name="pixelSize">262144</long>
+                    <long name="byteSize">36284</long>
                 </property-set>
             </property-set>
         </property-set>
-        <property-set name="page">
-            <string name="controller">com.enonic.starter.pwa:main</string>
-            <reference isNull="true" name="template"/>
-            <property-set name="region">
-                <string name="name">main</string>
-            </property-set>
-            <property-set name="config"/>
-            <boolean name="customized">true</boolean>
+        <property-set name="attachment">
+            <string name="name">app-icon.png</string>
+            <string name="label">source</string>
+            <binaryReference name="binary">app-icon.png</binaryReference>
+            <string name="mimeType">image/png</string>
+            <long name="size">36284</long>
+            <string name="text"/>
         </property-set>
     </data>
     <indexConfigs>
