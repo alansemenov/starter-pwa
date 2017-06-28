@@ -49,5 +49,8 @@
     <mapping controller="/lib/pwa/manifest-controller.js">
       <pattern>/manifest.json</pattern>
     </mapping>
+    <mapping controller="/lib/pwa/browserconfig-controller.js">
+      <pattern>/browserconfig.xml</pattern>
+    </mapping>
   </mappings>
 </site>

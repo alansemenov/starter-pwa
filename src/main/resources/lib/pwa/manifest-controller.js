@@ -8,6 +8,7 @@ exports.get = function() {
     var sitePath = portalLib.getSite()._path;
     var siteUrl = portalLib.pageUrl({path: sitePath});
     var siteConfig = portalLib.getSiteConfig();
+
     var params = {
         name: siteConfig.appName,
         shortName: siteConfig.appShortName || siteConfig.appName,
@@ -16,7 +17,10 @@ exports.get = function() {
         backgroundColor: siteConfig.appBgColor,
         display: siteConfig.appDisplay,
         siteUrl: (siteUrl == '/') ? '/' : siteUrl + '/',
-        iconUrl : portalLib.assetUrl({path: '/icons'})
+        icons: {
+            png_192: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(192)', format: 'png'}),
+            png_512: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(512)', format: 'png'})
+        }
     };
     var res = mustache.render(resolve('manifest.json'), params);
 
