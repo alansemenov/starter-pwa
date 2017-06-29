@@ -20,7 +20,7 @@ function handleGet() {
         icons: {
             png_16: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(16)', format: 'png'}),
             png_32: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(32)', format: 'png'}),
-            png_180: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(64)', format: 'png'})
+            png_180: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(180)', format: 'png'})
         }
     };
         
