@@ -17,5 +17,5 @@ npm-debug.log
 .tmp
 generated-java
 classes/
-src/resources/*.js
-src/resources/*.css
+src/resources/assets/*.js
+src/resources/assets/*.css
