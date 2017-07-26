@@ -1,5 +1,6 @@
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractTextPlugin = require('extract-text-webpack-plugin');
+const workboxPlugin = require('workbox-webpack-plugin');
 
 var paths = {
     assets: 'src/main/resources/assets/'
@@ -22,7 +23,7 @@ module.exports = {
         rules: [
             {
                 test: /.less$/,
-                loader: ExtractTextPlugin.extract({
+                loader: extractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: "css-loader!less-loader"
                 })
@@ -30,7 +31,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('_styles.css')
+        new extractTextPlugin('_styles.css'),
+        new workboxPlugin({
+            globDirectory: paths.assets,
+            globPatterns: ['**/*.{html,js,css}'],
+            swDest: path.join(__dirname, paths.assets, 'sw.js')
+        })
     ]
     
 };
