@@ -31,11 +31,15 @@ module.exports = {
         ]
     },
     plugins: [
-        new extractTextPlugin('_styles.css'),
+        new extractTextPlugin('_all.css'),
         new workboxPlugin({
             globDirectory: paths.assets,
-            globPatterns: ['**/*.{html,js,css}'],
-            swDest: path.join(__dirname, paths.assets, 'sw.js')
+            globPatterns: [
+                '_all.js',
+                '_all.css'
+            ],
+            swDest: path.join(__dirname, paths.assets, 'sw.js'),
+            skipWaiting: true
         })
     ]
     

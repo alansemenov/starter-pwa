@@ -17,13 +17,27 @@
     <meta name="msapplication-config" content="{{baseHref}}browserconfig.xml" />
     <meta name="msapplication-TileColor" content="{{themeColor}}">
 
-    <link rel="stylesheet" href="{{assetUrl}}/_styles.css" type="text/css"/>
-    <script type="text/javascript" src="{{assetUrl}}/_all.js"></script>
+    <link rel="stylesheet" href="{{baseHref}}_all.css" type="text/css"/>
+    <script type="text/javascript" src="{{baseHref}}_all.js"></script>
 
 </head>
 
 <body>
 We are live
 
+{{#isLive}}
+<script type="text/javascript">
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                .register('{{baseHref}}sw.js', {scope: '{{baseHref}}'})
+                .then(function(reg) {
+                    console.log('Service Worker registered with scope '  + reg.scope);
+                }, function() {
+                    console.log('Service Worker registration failure.');
+                });
+    }
+</script>
+{{/isLive}}
 </body>
 </html>

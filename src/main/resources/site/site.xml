@@ -52,5 +52,11 @@
     <mapping controller="/lib/pwa/browserconfig-controller.js">
       <pattern>/browserconfig.xml</pattern>
     </mapping>
+    <mapping controller="/lib/pwa/sw-controller.js">
+      <pattern>/(?:sw|workbox).*\.js$</pattern>
+    </mapping>
+    <mapping controller="/lib/pwa/sw-controller.js">
+      <pattern>/_all.*\.(?:js|css)$</pattern>
+    </mapping>
   </mappings>
 </site>

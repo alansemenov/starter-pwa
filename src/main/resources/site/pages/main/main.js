@@ -3,7 +3,7 @@ var parentPath = './';
 var view = resolve(parentPath + 'main.page.html');
 var mustacheLib = require('/lib/xp/mustache');
 
-function handleGet() {
+function handleGet(req) {
     var site = portalLib.getSite();
     var siteConfig = portalLib.getSiteConfig();
 
@@ -12,6 +12,7 @@ function handleGet() {
     });
     
     var params = {
+        isLive: (req.mode == 'live'),
         appVersion: app.version,
         assetUrl: portalLib.assetUrl(''),
         siteUrl: (siteUrl === '/') ? '' : siteUrl,
@@ -28,9 +29,6 @@ function handleGet() {
 
     return {
         contentType: 'text/html',
-        headers: {
-            'Service-Worker-Allowed': '/'
-        },
         body: body
     };
 }

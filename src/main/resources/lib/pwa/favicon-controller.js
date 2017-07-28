@@ -6,8 +6,6 @@ exports.get = function() {
     var attachments = contentLib.getAttachments(siteConfig.appIcon);
 
     var appIcon = attachments[Object.keys(attachments)[0]];
-
-    log.info(JSON.stringify(attachments));
     
     var stream = contentLib.getAttachmentStream({
         key: siteConfig.appIcon,
