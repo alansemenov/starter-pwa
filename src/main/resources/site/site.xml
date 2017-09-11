@@ -56,7 +56,7 @@
       <pattern>/(?:sw|workbox).*\.js$</pattern>
     </mapping>
     <mapping controller="/lib/pwa/sw-controller.js">
-      <pattern>/_all.*\.(?:js|css)$</pattern>
+      <pattern>/bundle.*\.(?:js|css)$</pattern>
     </mapping>
   </mappings>
 </site>

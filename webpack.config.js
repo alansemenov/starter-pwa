@@ -1,10 +1,19 @@
-var path = require('path');
-var extractTextPlugin = require('extract-text-webpack-plugin');
-const workboxPlugin = require('workbox-webpack-plugin');
+const path = require('path');
+const extractTextPlugin = require('extract-text-webpack-plugin');
+const workboxBuild = require('workbox-build');
 
-var paths = {
+const paths = {
     assets: 'src/main/resources/assets/'
 };
+
+const assetsPath = path.join(__dirname, paths.assets);
+
+workboxBuild.injectManifest({
+    swSrc: path.join(assetsPath, 'js/sw-dev.js'),
+    swDest: path.join(assetsPath, 'sw.js'),
+    globDirectory: assetsPath,
+    globPatterns: ['bundle.*', 'manifest.json']
+});
 
 module.exports = {
 
@@ -12,11 +21,11 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, paths.assets),
-        filename: '_all.js'
+        filename: 'bundle.js'
     },
 
     resolve: {
-        extensions: ['.js', 'less', '.css']
+        extensions: ['.js', '.less']
     },
 
     module: {
@@ -31,16 +40,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new extractTextPlugin('_all.css'),
-        new workboxPlugin({
-            globDirectory: paths.assets,
-            globPatterns: [
-                '_all.js',
-                '_all.css'
-            ],
-            swDest: path.join(__dirname, paths.assets, 'sw.js'),
-            skipWaiting: true
-        })
+        new extractTextPlugin('bundle.css')
     ]
     
 };

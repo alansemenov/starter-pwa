@@ -22,7 +22,7 @@ exports.get = function() {
             png_512: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(512)', format: 'png'})
         }
     };
-    var res = mustache.render(resolve('manifest.json'), params);
+    var res = mustache.render(resolve('/assets/manifest.json'), params);
 
     return {
         body: res,
