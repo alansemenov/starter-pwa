@@ -7,13 +7,18 @@ exports.get = function(req) {
     var fileName = pathArr[pathArr.length-1];
     var res = ioLib.getResource('/assets/' + fileName);
     var stream = res.getStream();
-
+    var siteConfig = portalLib.getSiteConfig();
     var responseObj = {};
     
     if (fileName == 'sw.js') {
         var sitePath = portalLib.getSite()._path;
         var params = {
-            siteUrl : portalLib.pageUrl({path: sitePath})
+            siteUrl : portalLib.pageUrl({path: sitePath}),
+            icons: {
+                png_16: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(16)', format: 'png'}),
+                png_32: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(32)', format: 'png'}),
+                png_180: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(180)', format: 'png'})
+            }
         };
         
         responseObj = {

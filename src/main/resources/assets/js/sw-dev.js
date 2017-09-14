@@ -4,8 +4,18 @@ const workboxSW = new self.WorkboxSW({
     skipWaiting: true,
     clientsClaim: true
 });
-workboxSW.precache([]); // This is a placeholder for manifest dynamically injected from webpack.config.js
-workboxSW.precache(['{{siteUrl}}', '{{siteUrl}}/']);
+
+// This is a placeholder for manifest dynamically injected from webpack.config.js
+workboxSW.precache([]);
+
+// Here we precache urls that are generated dynamically in the main.js controller
+workboxSW.precache([
+    '{{siteUrl}}',
+    '{{siteUrl}}/',
+    '{{icons.png_16}}',
+    '{{icons.png_32}}',
+    '{{icons.png_180}}'
+]);
 
 const cacheFirst = workboxSW.strategies.cacheFirst({
     cacheName: 'pwa-starter',

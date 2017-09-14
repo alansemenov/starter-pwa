@@ -12,7 +12,7 @@ workboxBuild.injectManifest({
     swSrc: path.join(assetsPath, 'js/sw-dev.js'),
     swDest: path.join(assetsPath, 'sw.js'),
     globDirectory: assetsPath,
-    globPatterns: ['bundle.*', 'manifest.json']
+    globPatterns: ['bundle.*', 'manifest.json', 'browserconfig.xml']
 });
 
 module.exports = {
