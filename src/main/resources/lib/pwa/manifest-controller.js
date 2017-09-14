@@ -18,7 +18,7 @@ var getContentType = function(fileName) {
 
 exports.get = function(req) {
     var pathArr = req.path.split('/');
-    var fileName = '/assets/' + pathArr[pathArr.length-1];
+    var fileName = '/assets/precache/' + pathArr[pathArr.length-1];
     var sitePath = portalLib.getSite()._path;
     var siteUrl = portalLib.pageUrl({path: sitePath});
     var siteConfig = portalLib.getSiteConfig();

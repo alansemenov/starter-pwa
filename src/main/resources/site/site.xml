@@ -52,8 +52,8 @@
     <mapping controller="/lib/pwa/sw-controller.js">
       <pattern>/(?:sw|workbox).*\.js$</pattern>
     </mapping>
-    <mapping controller="/lib/pwa/sw-controller.js">
-      <pattern>/bundle.*\.(?:js|css)$</pattern>
+    <mapping controller="/lib/pwa/precache-controller.js">
+      <pattern>/precache/.*</pattern>
     </mapping>
   </mappings>
 </site>

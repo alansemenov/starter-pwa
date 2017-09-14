@@ -12,16 +12,17 @@ workboxBuild.injectManifest({
     swSrc: path.join(assetsPath, 'js/sw-dev.js'),
     swDest: path.join(assetsPath, 'sw.js'),
     globDirectory: assetsPath,
-    globPatterns: ['bundle.*', 'manifest.json', 'browserconfig.xml']
+    globPatterns: ['precache/**\/*'],
+    globIgnores: ['precache/browserconfig.xml', 'precache/manifest.json'],
 });
 
 module.exports = {
 
-    entry: path.join(__dirname, paths.assets, 'js/main.js'),
+    entry: path.join(assetsPath, 'js/main.js'),
 
     output: {
-        path: path.join(__dirname, paths.assets),
-        filename: 'bundle.js'
+        path: assetsPath,
+        filename: 'precache/bundle.js'
     },
 
     resolve: {
@@ -40,7 +41,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new extractTextPlugin('bundle.css')
+        new extractTextPlugin('precache/bundle.css')
     ]
     
 };

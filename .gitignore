@@ -18,4 +18,5 @@ npm-debug.log
 generated-java
 classes/
 src/main/resources/assets/*.js
-src/main/resources/assets/*.css
+bundle.*
+
