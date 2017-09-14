@@ -50,7 +50,7 @@
       <pattern>/(manifest.json|browserconfig.xml)</pattern>
     </mapping>
     <mapping controller="/lib/pwa/sw-controller.js">
-      <pattern>/(?:sw|workbox).*\.js$</pattern>
+      <pattern>/sw.js</pattern>
     </mapping>
     <mapping controller="/lib/pwa/precache-controller.js">
       <pattern>/precache/.*</pattern>

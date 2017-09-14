@@ -13,7 +13,7 @@ workboxBuild.injectManifest({
     swDest: path.join(assetsPath, 'sw.js'),
     globDirectory: assetsPath,
     globPatterns: ['precache/**\/*'],
-    globIgnores: ['precache/browserconfig.xml', 'precache/manifest.json'],
+    globIgnores: ['precache/browserconfig.xml', 'precache/manifest.json']
 });
 
 module.exports = {
