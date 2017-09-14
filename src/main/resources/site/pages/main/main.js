@@ -7,7 +7,7 @@ function handleGet(req) {
     var site = portalLib.getSite();
     var siteConfig = portalLib.getSiteConfig();
 
-    var siteUrl = portalLib.pageUrl({
+    var baseUrl = portalLib.pageUrl({
         path: site._path
     });
     
@@ -15,8 +15,8 @@ function handleGet(req) {
         isLive: (req.mode == 'live'),
         appVersion: app.version,
         assetUrl: portalLib.assetUrl(''),
-        siteUrl: (siteUrl === '/') ? '' : siteUrl,
-        baseHref: siteUrl + '/',
+        siteUrl: (baseUrl === '/') ? '' : baseUrl,
+        baseUrl: baseUrl,
         themeColor: siteConfig.appThemeColor,
         icons: {
             png_16: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(16)', format: 'png'}),

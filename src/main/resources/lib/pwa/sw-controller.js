@@ -1,5 +1,6 @@
 var portalLib = require('/lib/xp/portal');
 var ioLib = require('/lib/xp/io');
+var mustache = require('/lib/xp/mustache');
 
 exports.get = function(req) {
     var pathArr = req.path.split('/');
@@ -7,19 +8,23 @@ exports.get = function(req) {
     var res = ioLib.getResource('/assets/' + fileName);
     var stream = res.getStream();
 
-    var responseObj = {
-        body: stream
-    };
+    var responseObj = {};
     
     if (fileName == 'sw.js') {
         var sitePath = portalLib.getSite()._path;
         var params = {
             siteUrl : portalLib.pageUrl({path: sitePath})
         };
-
-        responseObj.headers = {
-            'Service-Worker-Allowed': params.siteUrl
+        
+        responseObj = {
+            headers: {
+                'Service-Worker-Allowed': params.siteUrl
+            },
+            body: mustache.render(resolve('/assets/' + fileName), params)
         };
+    }
+    else {
+        responseObj.body = stream;
     }
 
     if (fileName.endsWith('js')) {
