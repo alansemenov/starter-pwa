@@ -2,6 +2,7 @@ var portalLib = require('/lib/xp/portal');
 var parentPath = './';
 var view = resolve(parentPath + 'main.page.html');
 var mustacheLib = require('/lib/xp/mustache');
+var helper = require('/lib/helper');
 
 function handleGet(req) {
     var site = portalLib.getSite();
@@ -12,6 +13,7 @@ function handleGet(req) {
     });
     
     var params = {
+        siteName: siteConfig.appName || site.displayName,
         isLive: (req.mode == 'live'),
         appVersion: app.version,
         assetUrl: portalLib.assetUrl(''),
@@ -19,9 +21,9 @@ function handleGet(req) {
         baseUrl: baseUrl,
         themeColor: siteConfig.appThemeColor,
         icons: {
-            png_16: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(16)', format: 'png'}),
-            png_32: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(32)', format: 'png'}),
-            png_180: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(180)', format: 'png'})
+            png_16: helper.getSquareImageUrl(siteConfig.appIcon, 16),
+            png_32: helper.getSquareImageUrl(siteConfig.appIcon, 32),
+            png_180: helper.getSquareImageUrl(siteConfig.appIcon, 180)
         }
     };
         

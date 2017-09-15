@@ -10,7 +10,6 @@ workboxSW.precache([]);
 
 // Here we precache urls that are generated dynamically in the main.js controller
 workboxSW.precache([
-    'https://unpkg.com/workbox-sw@1.1.0/build/importScripts/workbox-sw.prod.v1.1.0.js',
     '{{siteUrl}}',
     '{{siteUrl}}/',
     '{{siteUrl}}/manifest.json',

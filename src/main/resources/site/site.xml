@@ -3,13 +3,11 @@
   <config>
     <input type="TextLine" name="appName">
       <label>Application name</label>
-      <occurrences minimum="1" maximum="1"/>
-      <default>PWA Starter</default>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input type="TextLine" name="appShortName">
       <label>Short name</label>
       <occurrences minimum="0" maximum="1"/>
-      <default>PWA Starter</default>
     </input>
     <input type="TextLine" name="appDescription">
       <label>Description</label>

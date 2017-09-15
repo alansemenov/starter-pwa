@@ -1,16 +1,17 @@
 var portalLib = require('/lib/xp/portal');
 var mustache = require('/lib/xp/mustache');
+var helper = require('/lib/helper');
 
-exports.get = function(req) {
+exports.get = function() {
     var siteConfig = portalLib.getSiteConfig();
     var sitePath = portalLib.getSite()._path;
 
     var params = {
         siteUrl : portalLib.pageUrl({path: sitePath}),
         icons: {
-            png_16: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(16)', format: 'png'}),
-            png_32: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(32)', format: 'png'}),
-            png_180: portalLib.imageUrl({id: siteConfig.appIcon, scale: 'square(180)', format: 'png'})
+            png_16: helper.getSquareImageUrl(siteConfig.appIcon, 16),
+            png_32: helper.getSquareImageUrl(siteConfig.appIcon, 32),
+            png_180: helper.getSquareImageUrl(siteConfig.appIcon, 180)
         }
     };
     

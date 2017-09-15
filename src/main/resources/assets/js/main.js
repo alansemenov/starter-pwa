@@ -1,4 +1,6 @@
-require('../css/styles.less');
+(function(){
+    require('../css/styles.less');
 
-const logStatement = 'JavaScript bundle set up correctly';
-console.log(`${logStatement}`);
+    const logStatement = 'JavaScript bundle set up correctly';
+    console.log(`${logStatement}`);
+})();
