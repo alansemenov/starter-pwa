@@ -1,4 +1,4 @@
-importScripts('https://unpkg.com/workbox-sw@1.1.0/build/importScripts/workbox-sw.prod.v1.1.0.js');
+importScripts('https://unpkg.com/workbox-sw@2.0.1/build/importScripts/workbox-sw.prod.v2.0.1.js');
 
 const workboxSW = new self.WorkboxSW({
     skipWaiting: true,
@@ -13,8 +13,10 @@ workboxSW.precache([
     '{{siteUrl}}',
     '{{siteUrl}}/',
     '{{siteUrl}}/manifest.json',
-    '{{siteUrl}}/browserconfig.xml',
-    '{{icons.png_16}}',
+    '{{siteUrl}}/browserconfig.xml'
+    {{#hasAppIcon}}
+    ,'{{icons.png_16}}',
     '{{icons.png_32}}',
     '{{icons.png_180}}'
+    {{/hasAppIcon}}
 ]);

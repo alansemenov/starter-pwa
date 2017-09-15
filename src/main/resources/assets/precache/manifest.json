@@ -4,8 +4,9 @@
   "theme_color": "{{themeColor}}",
   "background_color": "{{backgroundColor}}",
   "display": "{{display}}",
-  "start_url": "{{siteUrl}}?source=web_app_manifest",
-  "icons": [
+  "start_url": "{{siteUrl}}?source=web_app_manifest"
+{{#hasAppIcon}}
+  ,"icons": [
     {
       "src": "{{icons.png_192}}",
       "sizes": "192x192",
@@ -17,4 +18,5 @@
       "type": "image/png"
     }
   ]
+{{/hasAppIcon}}
 }

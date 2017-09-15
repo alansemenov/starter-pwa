@@ -12,22 +12,27 @@ exports.get = function(req) {
     var siteUrl = portalLib.pageUrl({path: sitePath});
     var siteConfig = portalLib.getSiteConfig();
     var site = portalLib.getSite();
-    
+    var appIcon = helper.getAppIcon();
+
     var params = {
         name: siteConfig.appName || site.displayName,
         shortName: siteConfig.appShortName || siteConfig.appName || site.displayName,
-        description: siteConfig.appDescription,
-        themeColor: siteConfig.appThemeColor,
-        backgroundColor: siteConfig.appBgColor,
-        display: siteConfig.appDisplay,
-        siteUrl: (siteUrl == '/') ? '/' : siteUrl + '/',
-        icons: {
-            png_150: helper.getSquareImageUrl(siteConfig.appIcon, 150),
-            png_192: helper.getSquareImageUrl(siteConfig.appIcon, 192),
-            png_512: helper.getSquareImageUrl(siteConfig.appIcon, 512)
-        }
+        description: siteConfig.appDescription || '',
+        themeColor: siteConfig.appThemeColor || '#FFF',
+        backgroundColor: siteConfig.appBgColor || '#FFF',
+        display: siteConfig.appDisplay || 'standalone',
+        siteUrl: (siteUrl == '/') ? '/' : siteUrl + '/'
     };
 
+    if (appIcon) {
+        params.hasAppIcon = true;
+        params.icons = {
+            png_150: helper.getSquareImageUrl(appIcon, 150),
+            png_192: helper.getSquareImageUrl(appIcon, 192),
+            png_512: helper.getSquareImageUrl(appIcon, 512)
+        };
+    }
+    
     var res = mustache.render(resolve(fileName), params);
 
     return {

@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>{{siteName}}</title>
 
+    {{#hasAppIcon}}
     <link rel="apple-touch-icon" sizes="180x180" href="{{icons.png_180}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{icons.png_32}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{icons.png_16}}">
+    {{/hasAppIcon}}
 
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="precache/icons/safari-pinned-tab.svg" color="#f53d3d">

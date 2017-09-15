@@ -48,13 +48,9 @@
             <property-set name="siteConfig">
                 <string name="applicationKey">com.enonic.starter.pwa</string>
                 <property-set name="config">
-                    <string name="appName">PWA Starter</string>
-                    <string name="appShortName">PWA Starter</string>
                     <string name="appDescription">Sample PWA app built on Enonic XP platform</string>
                     <reference name="appIcon">f79c4bb0-d377-41d8-af5f-27eb8270a106</reference>
-                    <string name="appThemeColor">#FFF</string>
-                    <string name="appBgColor">#FFF</string>
-                    <string name="appDisplay">fullscreen</string>
+                    <string name="appDisplay">standalone</string>
                 </property-set>
             </property-set>
         </property-set>

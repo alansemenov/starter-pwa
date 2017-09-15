@@ -3,17 +3,21 @@ var mustache = require('/lib/xp/mustache');
 var helper = require('/lib/helper');
 
 exports.get = function() {
-    var siteConfig = portalLib.getSiteConfig();
     var sitePath = portalLib.getSite()._path;
+    var appIcon = helper.getAppIcon();
 
     var params = {
-        siteUrl : portalLib.pageUrl({path: sitePath}),
-        icons: {
-            png_16: helper.getSquareImageUrl(siteConfig.appIcon, 16),
-            png_32: helper.getSquareImageUrl(siteConfig.appIcon, 32),
-            png_180: helper.getSquareImageUrl(siteConfig.appIcon, 180)
-        }
+        siteUrl : portalLib.pageUrl({path: sitePath})
     };
+    
+    if (appIcon) {
+        params.hasAppIcon = true;
+        params.icons = {
+                png_16: helper.getSquareImageUrl(appIcon, 16),
+                png_32: helper.getSquareImageUrl(appIcon, 32),
+                png_180: helper.getSquareImageUrl(appIcon, 180)
+        };
+    }
     
     return {
         headers: {

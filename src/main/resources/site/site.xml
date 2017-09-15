@@ -15,18 +15,16 @@
     </input>
     <input type="ImageSelector" name="appIcon">
       <label>Application icon</label>
-      <occurrences minimum="1" maximum="1"/>
+      <occurrences minimum="0" maximum="1"/>
       <config/>
     </input>
     <input type="TextLine" name="appThemeColor">
       <label>Theme Color (HEX)</label>
-      <occurrences minimum="1" maximum="1"/>
-      <default>#FFF</default>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input type="TextLine" name="appBgColor">
       <label>Background Color (HEX)</label>
-      <occurrences minimum="1" maximum="1"/>
-      <default>#FFF</default>
+      <occurrences minimum="0" maximum="1"/>
     </input>
     <input type="ComboBox" name="appDisplay">
       <label>Display Mode</label>
@@ -37,7 +35,7 @@
         <option value="minimal-ui">Minimal UI</option>
         <option value="browser">Browser</option>
       </config>
-      <default>fullscreen</default>
+      <default>standalone</default>
     </input>
   </config>
   <mappings>
