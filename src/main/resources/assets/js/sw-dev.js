@@ -20,3 +20,8 @@ workboxSW.precache([
     '{{icons.png_180}}'
     {{/hasAppIcon}}
 ]);
+
+workboxSW.router.registerRoute(
+    'http://ip-api.com/json',
+    workboxSW.strategies.cacheFirst()
+);

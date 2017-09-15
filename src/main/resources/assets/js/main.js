@@ -3,7 +3,7 @@ require('../css/styles.less');
 (function(){
 
     const geoLocationApiUrl = 'http://ip-api.com/json';
-    const defaultCity = 'Oslo';
+    const defaultCity = 'Samara';
 
     var app = {
         currentCity: defaultCity
@@ -45,6 +45,8 @@ require('../css/styles.less');
     };
 
     (function() {
+        showMessage(`Current city is ${app.currentCity}`);
+        
         app.fetchCurrentLocation();
     })();
 })();
